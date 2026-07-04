@@ -24,50 +24,47 @@
 
     <main>
       <section id="search-section">
-        <p class="city-name">
-          <i class="fa-solid fa-location-dot"></i>Location
-        </p>
+        <p class="city-name"></p>
         <div id="search-box">
           <input
             type="search"
-            name="search box"
             id="search-input"
-            placeholder="🔍︎ Find Your City"
+            placeholder="Enter city name"
+            autocomplete="off"
+            spellcheck="false"
           />
-          <button id="search-btn">Search</button>
+          <button id="search-btn" type="button">Search</button>
         </div>
       </section>
       <section id="weather-card">
         <h1 id="weather-icon">🌦️</h1>
-        <p id="temp-display">31°C</p>
-        <p id="weather-cond">Sunny</p>
-        <p class="city-name">
-          <i class="fa-solid fa-location-dot"></i>Location
-        </p>
-        <p id="day-date">29 June 2026, Monday</p>
+        <p id="temp-display">Search a city</p>
+        <p id="weather-cond"></p>
+        <p class="city-name"></p>
+        <p id="day-date"></p>
         <hr />
-        <p id="feel-like">Feels Like 35°C</p>
+        <p id="feel-like"></p>
       </section>
       <section class="weather-details">
         <div class="detail-card">
           <span class="detail-icon"><i class="fa-solid fa-droplet"></i></span>
           <p>Humidity</p>
-          <span id="humidity" class="detail-value">62%</span>
+          <span id="humidity" class="detail-value"></span>
         </div>
         <div class="detail-card">
           <span class="detail-icon"><i class="fa-solid fa-wind"></i></span>
           <p>Wind Speed</p>
-          <span id="wind-speed" class="detail-value">7 km/h</span>
+          <span id="wind-speed" class="detail-value"></span>
         </div>
         <div class="detail-card">
           <span class="detail-icon"><i class="fa-solid fa-eye"></i></span>
           <p>Visibility</p>
-          <span id="visibility" class="detail-value">3 kms</span>
+          <span id="visibility" class="detail-value"></span>
         </div>
         <div class="detail-card">
           <span class="detail-icon"><i class="fa-solid fa-gauge"></i></span>
           <p>Pressure</p>
-          <span id="pressure" class="detail-value">1012 hPa</span>
+          <span id="pressure" class="detail-value"></span>
         </div>
       </section>
     </main>
@@ -75,12 +72,12 @@
       <div class="sun-timing">
         <span class="sun-icon"><i class="fa-solid fa-sun"></i></span>
         <p>Sunrise</p>
-        <span id="sun-rise">5:18 AM</span>
+        <span id="sun-rise"></span>
       </div>
       <div class="sun-timing">
         <span class="sun-icon"><i class="fa-solid fa-cloud-sun"></i></span>
         <p>Sunset</p>
-        <span id="sun-set">6:47 PM</span>
+        <span id="sun-set"></span>
       </div>
     </footer>
     <script src="script.js"></script>
