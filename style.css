@@ -277,6 +277,11 @@ main {
   color: var(--text-secondary);
 }
 
+#last-updated {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
 /*Weather Details*/
 .weather-details {
   display: grid;
@@ -443,58 +448,190 @@ main {
   transform: translateY(0);
 }
 
+/*Weather Effects*/
+#weather-effects {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  overflow: hidden;
+
+  z-index: -1;
+}
+
 /*js-classes for dynamic background*/
 /*01d*/
 .sunny-day {
   background: linear-gradient(135deg, #ffd54f 0%, #ff9800 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 12s ease infinite;
 }
 
 /*01n*/
 .clear-night {
   background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 12s ease infinite;
 }
 
 /*02d, 02n*/
 .few-clouds {
   background: linear-gradient(135deg, #74b9ff 0%, #dfe6e9 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 12s ease infinite;
 }
 
 /*03d, 03n*/
 .scattered-clouds {
   background: linear-gradient(135deg, #a29bfe 0%, #dfe6e9 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 12s ease infinite;
 }
 
 /*04d, 04n*/
 .broken-clouds {
   background: linear-gradient(135deg, #636e72 0%, #b2bec3 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 12s ease infinite;
 }
 
 /*09d, 09n*/
 .shower-rain {
   background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 12s ease infinite;
 }
 
 /*10d, 10n*/
 .rain {
   background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 12s ease infinite;
 }
 
 /*11d, 11n*/
 .thunder {
   background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 12s ease infinite;
 }
 
 /*13d, 13n*/
 .snow {
   background: linear-gradient(135deg, #e6d5ff 0%, #ffffff 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 12s ease infinite;
 }
 
 /*50d, 50n*/
 .mist {
   background: linear-gradient(135deg, #dfe6e9 0%, #b2bec3 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 12s ease infinite;
 }
 
 .icon-hidden {
   opacity: 0;
   transform: scale(0.75) rotate(-10deg);
+}
+
+.weather-update {
+  animation: weatherUpdate 0.45s ease;
+}
+
+.cloud {
+  position: absolute;
+
+  width: 220px;
+  height: 70px;
+
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+
+  border-radius: 50px;
+
+  left: -260px;
+
+  animation: moveCloud 35s linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+
+  background: inherit;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 80px;
+  height: 80px;
+
+  top: -35px;
+  left: 25px;
+}
+
+.cloud::after {
+  width: 100px;
+  height: 100px;
+
+  top: -50px;
+  right: 30px;
+}
+
+.rain-drop {
+  position: absolute;
+  top: -20px;
+  width: 2px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50px;
+  animation: rainFall linear infinite;
+}
+
+@keyframes rainFall {
+  from {
+    transform: translateY(-20px);
+  }
+
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+@keyframes moveCloud {
+  from {
+    left: -260px;
+  }
+
+  to {
+    left: calc(100vw + 260px);
+  }
+}
+
+@keyframes weatherUpdate {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
